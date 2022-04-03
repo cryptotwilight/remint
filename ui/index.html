@@ -62,7 +62,7 @@
                 <div class="row gx-5 align-items-center justify-content-center ">
                     <div class="col-lg-8 col-xl-7 col-xxl-6 ">
                         <div class="my-5 text-center text-xl-start ">
-                            <span id="showWallet"></span><img class="img-fluid rounded-3 my-5 " src="https://dummyimage.com/600x400/343a40/6c757d " alt="... " />
+                            <span id="show_wallet"></span><img class="img-fluid rounded-3 my-5 " src="https://dummyimage.com/600x400/343a40/6c757d " alt="... " />
                             <video></video>
 
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start ">
@@ -375,6 +375,9 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js "></script>
     <script>
+        var iRemintAbi = "[]"; 
+    </script>
+    <script>
         const onboardButton = ge("connect_web_3");
         const showWallet = ge("show_wallet");
         var account;
@@ -386,7 +389,7 @@
         console.log("got ipfs: " + ipfs);
 
         const reMintAddress = "";
-        const reMintContract = new web3.eth.Contract(iRemintAbi, reMintAddress);
+        const reMintContract = "" ;//= new web3.eth.Contract(iRemintAbi, reMintAddress);
 
         //Created check function to see if the MetaMask extension is installed
         const isMetaMaskInstalled = () => {
@@ -408,7 +411,7 @@
                 onboardButton.disabled = false;
             } else {
                 //If it is installed we change our button text
-                onboardButton.innerText = 'Click to Connect Metamask';
+                onboardButton.innerText = 'Click to Connect Metamask to Celo';
 
                 console.log("metamask installed");
                 onboardButton.addEventListener('click', () => {
