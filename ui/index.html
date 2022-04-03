@@ -55,9 +55,9 @@
                                 <h1 class="display-5 fw-bolder text-white mb-2">A Bootstrap 5 template for modern businesses</h1>
                                 <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <select> 
-                                        <option>Selfie Camera</option>
-                                        <option>Scenic Camera</option>
+                                    <select id="device_select"> 
+                                        <option id="front_camera">Selfie Camera</option>
+                                        <option id="back_camera">Scenic Camera</option>
                                     </select>
                                     <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
                                     <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
@@ -80,24 +80,34 @@
                         <div class="col-lg-8">
                             <div class="row gx-5 row-cols-1 row-cols-md-2">
                                 <div class="col mb-5 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                                    <h2 class="h5">Featured title</h2>
-                                    <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
+                                    Address Book
+                                  <table>
+                                    <tr> 
+                                        <td>Find Friend</td>
+                                        <td><input type="text" id="find_friend" placeholder="enter name... " class="form-control"></td>
+                                        <td><button class="btn btn-outline-primary" id="find">Find</button></td>
+                                    </tr> 
+                                    <tr> 
+                                        <td>Add Friend</td>
+                                        <td><input type="text" class="form-control" id="add_friend_name" placeholder="enter name ..."></td>
+                                        <td><input type="text" class="form-control" id="add_friend_address" placeholder="enter celo address ..."></td>
+                                        <td><button id="add" class="btn btn-outline-primary">Add</button></td>
+                                    </tr>
+                                    
+                                  </table>
                                 </div>
                                 <div class="col mb-5 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                                    <h2 class="h5">Featured title</h2>
-                                    <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
-                                </div>
-                                <div class="col mb-5 mb-md-0 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                                    <h2 class="h5">Featured title</h2>
-                                    <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
-                                </div>
-                                <div class="col h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                                    <h2 class="h5">Featured title</h2>
-                                    <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
+                                    Blockchain Friends List
+                                    <table>
+                                        <tr>
+                                            <td>Name</td><td>Address</td><td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>John</td><td>0x...</td><td><button class="btn btn-outline-primary" id="find">Send</button></td>
+                                        </tr>
+                            
+                                        
+                                      </table>
                                 </div>
                             </div>
                         </div>
