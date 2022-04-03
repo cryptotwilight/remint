@@ -65,7 +65,7 @@
                             <span id="show_wallet"></span>
                             <div class="card h-100 shadow border-0 ">
 
-                                <video class="card-img-top " id="camera_video"></video>
+                                <video id="camera_video"></video>
                                 <div class="card-body p-4 ">
                                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start ">
                                         <select id="device_select" class="form-control "> 
@@ -412,7 +412,12 @@
     </script>
     <script>
         const video = ge("camera_video");
-        console.log("video : " + video);
+        //console.log("video : " + video);
+        video.setAttribute('playsinline', '');
+        video.setAttribute('autoplay', '');
+        video.setAttribute('muted', '');
+        video.style.width = '200px';
+        video.style.height = '200px';
         const deviceSelect = ge("device_select");
         const cameraActivateButton = ge("activate_camera");
         const takePhotoButton = ge("take_photo_button");
@@ -477,7 +482,8 @@
                     })
                     .then(function(stream) {
                         localstream = stream;
-                        video.src = localstream;
+                        console.log(stream);
+                        video.srcObject = localstream;
                         cameraActivateButton.innerHTML = "<i class=\"fa fa-camera\"></i> Stop Camera";
                         cameraActivateButton.setAttribute("class", "btn btn-danger");
                         cameraActive = true;
@@ -507,6 +513,13 @@
             // data url of the image
             console.log(image);
         });
+
+        function clearMintingCanvas() {
+            image = "";
+            const context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            mintTitleField.value = "";
+        }
     </script>
     <script>
         const onboardButton = ge("connect_web_3");
