@@ -78,10 +78,10 @@
                     </div>
                     <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center ">
                         <img class="img-fluid rounded-3 my-5 " src="https://dummyimage.com/600x400/343a40/6c757d " alt="... " />
-                        <canvas id="photoshot "></canvas>
+                        <canvas id="photo_shot "></canvas>
                         <input type="text " id="photo_title " class="form-control " placeholder="enter title ... ">
                         <input type=" textarea " id="photo_story " class="form-control " placeholder="enter photo story ">
-                        <a class="btn btn-outline-light btn-lg px-4 " href="#" id="mint_photo">Mint & broadcast</a>
+                        <a class="btn btn-outline-light btn-lg px-4 " href="#" id="mint_photo">Mint</a>
                         <a class="btn btn-outline-light btn-lg px-4 " href="#" id="bin_photo">Bin</a>
                     </div>
                 </div>
@@ -361,7 +361,7 @@
                 <div class="col-auto ">
                     <div class="small m-0 text-white ">Copyright &copy; 2022 <a href="https://www.blockstarlogic.com">Block Star Logic</a></div>
                 </div>
-         
+
             </div>
         </div>
     </footer>
@@ -370,7 +370,17 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js "></script>
     <script>
-        var iRemintAbi = "[]"; 
+        var iRemintAbi = "[]";
+    </script>
+    <script>
+        const deviceSelect = ge("device_select");
+        const cameraActivateButton = ge("activate_camera");
+        const takePhotoButton = ge("take_photo");
+        const photoShot = ge("photo_shot");
+        const photoTitle = ge("photo_title");
+        const photoStory = ge("photo_story");
+        const mintPhoto = ge("mint_photo");
+        const binPhoto = ge("bin");
     </script>
     <script>
         const onboardButton = ge("connect_web_3");
@@ -384,7 +394,7 @@
         console.log("got ipfs: " + ipfs);
 
         const reMintAddress = "";
-        const reMintContract = "" ;//= new web3.eth.Contract(iRemintAbi, reMintAddress);
+        const reMintContract = ""; //= new web3.eth.Contract(iRemintAbi, reMintAddress);
 
         //Created check function to see if the MetaMask extension is installed
         const isMetaMaskInstalled = () => {
