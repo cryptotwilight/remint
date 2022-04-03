@@ -67,11 +67,11 @@
 
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start ">
                                 <select id="device_select " class="form-control "> 
-                                        <option id="front_camera ">Selfie Camera</option>
-                                        <option id="back_camera ">Scenic Camera</option>
+                                        <option value="front_camera ">Selfie Camera</option>
+                                        <option value="back_camera ">Scenic Camera</option>
                                     </select>
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3 " href="#features ">Activate Camera</a>
-                                <a class="btn btn-outline-light btn-lg px-4 " href="#! ">Take Photo</a>
+                                <a class="btn btn-success btn-lg px-4 me-sm-3 " id="activate_camera" href="#">Activate Camera</a>
+                                <a class="btn btn-outline-light btn-lg px-4 " id="take_photo" href="#">Take Photo</a>
                             </div>
 
                         </div>
@@ -81,7 +81,7 @@
                         <canvas id="photoshot "></canvas>
                         <input type="text " id="photo_title " class="form-control " placeholder="enter title ... ">
                         <input type=" textarea " id="photo_story " class="form-control " placeholder="enter photo story ">
-                        <a class="btn btn-outline-light btn-lg px-4 " href="#" id="mint_photo">Mint & Share</a>
+                        <a class="btn btn-outline-light btn-lg px-4 " href="#" id="mint_photo">Mint & broadcast</a>
                         <a class="btn btn-outline-light btn-lg px-4 " href="#" id="bin_photo">Bin</a>
                     </div>
                 </div>
@@ -93,6 +93,20 @@
                 <div class="row gx-5 ">
                     <div class="col-lg-4 mb-5 mb-lg-0 ">
                         <h2 class="fw-bolder mb-0 ">Latest New People on Remint</h2>
+                        <table id="newest_users"> 
+                            <tr>
+                                <td>Photo</td> 
+                                <td>Name</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/android-icon-48x48.png" class="rounded-circle me-3 "></td> 
+                                <td>Blockchain Rambo</td>
+                                <td>the amazing blockchain developer</td>
+                                <td><button class="btn btn-outline-primary " id="connect">Connect</button></td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="col-lg-8 ">
                         <div class="row gx-5 row-cols-1 row-cols-md-2 ">
@@ -124,17 +138,17 @@
                                     <tr>
                                         <td>John</td>
                                         <td>0x...</td>
-                                        <td><button class="btn btn-outline-primary " id="find ">Send</button></td>
+                                        <td><button class="btn btn-outline-primary " id="send ">Send</button></td>
                                     </tr>
                                     <tr>
                                         <td>John</td>
                                         <td>0x...</td>
-                                        <td><button class="btn btn-outline-primary " id="find ">Send</button></td>
+                                        <td><button class="btn btn-outline-primary " id="send">Send</button></td>
                                     </tr>
                                     <tr>
                                         <td>John</td>
                                         <td>0x...</td>
-                                        <td><button class="btn btn-outline-primary " id="find ">Send</button></td>
+                                        <td><button class="btn btn-outline-primary " id="send ">Send</button></td>
                                     </tr>
 
                                 </table>
@@ -144,25 +158,7 @@
                 </div>
             </div>
         </section>
-        <!-- Testimonial section-->
-        <div class="py-5 bg-light ">
-            <div class="container px-5 my-5 ">
-                <div class="row gx-5 justify-content-center ">
-                    <div class="col-lg-10 col-xl-7 ">
-                        <div class="text-center ">
-                            <div class="fs-4 mb-4 fst-italic ">"Working with Start Bootstrap templates has saved me tons of development time when building new projects! Starting with a Bootstrap template just makes things easier! "</div>
-                            <div class="d-flex align-items-center justify-content-center ">
-                                <img class="rounded-circle me-3 " src="https://dummyimage.com/40x40/ced4da/6c757d " alt="... " />
-                                <div class="fw-bold ">
-                                    Tom Ato
-                                    <span class="fw-bold text-primary mx-1 ">/</span> CEO, Pomodoro
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!-- Blog preview section-->
         <section class="py-5 ">
             <div class="container px-5 my-5 ">
@@ -174,7 +170,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row gx-5 ">
+                <div class="row gx-5 " id="friend_stories">
                     <div class="col-lg-4 mb-5 ">
                         <div class="card h-100 shadow border-0 ">
                             <img class="card-img-top " src="https://dummyimage.com/600x350/ced4da/6c757d " alt="... " />
@@ -246,6 +242,98 @@
                         </div>
                     </div>
                 </div>
+                <!-- Testimonial section-->
+                <div class="row gx-5 justify-content-center ">
+                    <div class="col-lg-8 col-xl-6 ">
+                        <div class="text-center ">
+                            <h2 class="fw-bolder ">Your Latest Broadcasts</h2>
+                            <p class="lead fw-normal text-muted mb-5 ">Below are your latest stories</p>
+                        </div>
+                    </div>
+                </div>
+        <div class="py-5 bg-light ">
+            <div class="container px-5 my-5 ">
+                
+                <div class="row gx-5 justify-content-center ">
+                   
+                            <div class="col-lg-4 mb-5 ">
+                                <div class="card h-100 shadow border-0 ">
+                                    <img class="card-img-top " src="https://dummyimage.com/600x350/6c757d/343a40 " alt="... " />
+                                    <div class="card-body p-4 ">
+                                        
+                                        <a class="text-decoration-none link-dark stretched-link " href="#! ">
+                                            <h5 class="card-title mb-3 ">The last blog post title is a little bit longer than the others</h5>
+                                        </a>
+                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2 ">Review story</div>                                        
+                                    </div>
+                                    <div class="card-footer p-4 pt-0 bg-transparent border-top-0 ">
+                                        <div class="d-flex align-items-end justify-content-between ">
+                                            <div class="d-flex align-items-center ">
+                                                
+                                                <div class="small ">
+                                                    <div class="fw-bold ">Re-broadcasts in your Network: 100</div>
+                                                    <div class="fw-bold ">Re-Mints in your Network: 1000</div>
+                                                    <div class="fw-bold ">Earnings from your Network: $50</div>
+                                                    <div class="text-muted ">Broadcast: April 2, 2022 &middot 14:22</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-5 ">
+                                <div class="card h-100 shadow border-0 ">
+                                    <img class="card-img-top " src="https://dummyimage.com/600x350/6c757d/343a40 " alt="... " />
+                                    <div class="card-body p-4 ">
+                                        
+                                        <a class="text-decoration-none link-dark stretched-link " href="#! ">
+                                            <h5 class="card-title mb-3 ">The last blog post title is a little bit longer than the others</h5>
+                                        </a>
+                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2 ">Review story</div>                                        
+                                    </div>
+                                    <div class="card-footer p-4 pt-0 bg-transparent border-top-0 ">
+                                        <div class="d-flex align-items-end justify-content-between ">
+                                            <div class="d-flex align-items-center ">
+                                                
+                                                <div class="small ">
+                                                    <div class="fw-bold ">Re-broadcasts in your Network: 100</div>
+                                                    <div class="fw-bold ">Re-Mints in your Network: 1000</div>
+                                                    <div class="fw-bold ">Earnings from your Network: $50</div>
+                                                    <div class="text-muted ">Broadcast: April 2, 2022 &middot 14:22</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-5 ">
+                                <div class="card h-100 shadow border-0 ">
+                                    <img class="card-img-top " src="https://dummyimage.com/600x350/6c757d/343a40 " alt="... " />
+                                    <div class="card-body p-4 ">
+                                        
+                                        <a class="text-decoration-none link-dark stretched-link " href="#! ">
+                                            <h5 class="card-title mb-3 ">The last blog post title is a little bit longer than the others</h5>
+                                        </a>
+                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2 ">Review story</div>                                        
+                                    </div>
+                                    <div class="card-footer p-4 pt-0 bg-transparent border-top-0 ">
+                                        <div class="d-flex align-items-end justify-content-between ">
+                                            <div class="d-flex align-items-center ">
+                                                
+                                                <div class="small ">
+                                                    <div class="fw-bold ">Re-broadcasts in your Network: 100</div>
+                                                    <div class="fw-bold ">Re-Mints in your Network: 1000</div>
+                                                    <div class="fw-bold ">Earnings from your Network: $50</div>
+                                                    <div class="text-muted ">Broadcast: April 2, 2022 &middot 14:22</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
                 <!-- Call to action-->
                 <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5 ">
                     <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start ">
@@ -368,12 +456,15 @@
             return document.getElementById(element);
         }
 
+        prepareData("dummy image", "dummy title", "dummy story");
+
         function prepareData(image, title, story) {
             let data = {};
             data["image"] = image;
             data["title"] = title;
             data["story"] = story;
-
+            console.log(data);
+            return data;
         }
 
         function mint(data) {
