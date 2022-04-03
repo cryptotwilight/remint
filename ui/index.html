@@ -62,27 +62,35 @@
                 <div class="row gx-5 align-items-center justify-content-center ">
                     <div class="col-lg-8 col-xl-7 col-xxl-6 ">
                         <div class="my-5 text-center text-xl-start ">
-                            <span id="show_wallet"></span><img class="img-fluid rounded-3 my-5 " src="https://dummyimage.com/600x400/343a40/6c757d " alt="... " />
-                            <video></video>
+                            <span id="show_wallet"></span>
+                            <div class="card h-100 shadow border-0 ">
 
-                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start ">
-                                <select id="device_select " class="form-control "> 
-                                        <option value="front_camera ">Selfie Camera</option>
-                                        <option value="back_camera ">Scenic Camera</option>
-                                    </select>
-                                <a class="btn btn-success btn-lg px-4 me-sm-3 " id="activate_camera" href="#">Activate Camera</a>
-                                <a class="btn btn-outline-light btn-lg px-4 " id="take_photo" href="#">Take Photo</a>
+                                <video class="card-img-top " id="camera_video"></video>
+                                <div class="card-body p-4 ">
+                                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start ">
+                                        <select id="device_select" class="form-control "> 
+                                           <option value="front_camera" selected>Selfie Camera</option>
+                                            <option value="back_camera">Scenic Camera</option>
+                                        </select>
+                                        <a class="btn btn-success btn-lg px-4 me-sm-3 " id="activate_camera" href="#">Activate Camera</a>
+                                        <a class="btn btn-outline-dark btn-lg px-4 " id="take_photo_button" href="#">Take Photo</a>
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center ">
-                        <img class="img-fluid rounded-3 my-5 " src="https://dummyimage.com/600x400/343a40/6c757d " alt="... " />
-                        <canvas id="photo_shot "></canvas>
-                        <input type="text " id="photo_title " class="form-control " placeholder="enter title ... ">
-                        <input type=" textarea " id="photo_story " class="form-control " placeholder="enter photo story ">
-                        <a class="btn btn-outline-light btn-lg px-4 " href="#" id="mint_photo">Mint</a>
-                        <a class="btn btn-outline-light btn-lg px-4 " href="#" id="bin_photo">Bin</a>
+                        <div class="card h-100 shadow border-0 ">
+                            <canvas class="card-img-top " id="minting_canvas"></canvas>
+                            <div class="card-body p-4 ">
+                                <input type="text " id="photo_title_field" class="form-control " placeholder="enter title ... ">
+                                <hr/>
+                                <input type=" textarea " id="photo_story_field" class="form-control " placeholder="enter photo story ">
+                                <hr/>
+                                <a class="btn btn-outline-success btn-lg px-4 " href="#" id="mint_photo_button">Mint</a>
+                                <a class="btn btn-outline-danger btn-lg px-4 " href="#" id="bin_photo_button">Bin</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,7 +100,7 @@
             <div class="container px-5 my-5 ">
                 <div class="row gx-5 ">
                     <div class="col-lg-4 mb-5 mb-lg-0 ">
-                        <h2 class="fw-bolder mb-0 ">Latest New People on Remint</h2>
+                        <h2 class="fw-bolder mb-0 ">Latest New People on ReMint</h2>
                         <table id="newest_users">
                             <tr>
                                 <td>Photo</td>
@@ -104,54 +112,84 @@
                                 <td><img src="assets/android-icon-48x48.png" class="rounded-circle me-3 "></td>
                                 <td>Blockchain Rambo</td>
                                 <td>the amazing blockchain developer</td>
-                                <td><button class="btn btn-outline-primary " id="connect">Connect</button></td>
+                                <td><button class="btn btn-outline-primary " id="add_new_person_to_network">Add to Network</button></td>
                             </tr>
                         </table>
                     </div>
                     <div class="col-lg-8 ">
                         <div class="row gx-5 row-cols-1 row-cols-md-2 ">
-                            <div class="col mb-5 h-100 ">
-                                Address Book
-                                <table>
-                                    <tr>
-                                        <td>Find Friend</td>
-                                        <td><input type="text " id="find_friend " placeholder="enter name... " class="form-control "></td>
-                                        <td><button class="btn btn-outline-primary " id="find ">Find</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Add Friend</td>
-                                        <td><input type="text " class="form-control " id="add_friend_name " placeholder="enter name ... "></td>
-                                        <td><input type="text " class="form-control " id="add_friend_address " placeholder="enter celo address ... "></td>
-                                        <td><button id="add " class="btn btn-outline-primary ">Add</button></td>
-                                    </tr>
-
-                                </table>
+                            <div class="col mb-4 h-100 ">
+                                <div class="card h-100 shadow border-0 ">
+                                    <h2 class="fw-bolder mb-0 ">Send to Friends</h2>
+                                    <div class="card-body p-4 ">
+                                        <table>
+                                            <tr>
+                                                <td><img class="card-img-top " src="https://dummyimage.com/600x350/ced4da/6c757d " alt="story title"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>My dummy title</td>
+                                            </tr>
+                                            <tr>
+                                                <td>This is an awesome pic of this time I went to ... </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col mb-5 h-100 ">
-                                Blockchain Friends List
-                                <table>
-                                    <tr>
-                                        <td>Name</td>
-                                        <td>Address</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>0x...</td>
-                                        <td><button class="btn btn-outline-primary " id="send ">Send</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>0x...</td>
-                                        <td><button class="btn btn-outline-primary " id="send">Send</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>0x...</td>
-                                        <td><button class="btn btn-outline-primary " id="send ">Send</button></td>
-                                    </tr>
 
-                                </table>
+                            <div class="col mb-4 h-100 ">
+                                <!-- empty space -->
+                            </div>
+
+                            <div class="col mb-4 h-100 ">
+                                <div class="card h-100 shadow border-0 ">
+                                    <h2 class="fw-bolder mb-0 ">Blockchain Friends List</h2>
+                                    <div class="card-body p-4 ">
+                                        <table>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Address</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>John</td>
+                                                <td>0x...</td>
+                                                <td><button class="btn btn-outline-primary " id="send ">Send</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>John</td>
+                                                <td>0x...</td>
+                                                <td><button class="btn btn-outline-primary " id="send">Send</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>John</td>
+                                                <td>0x...</td>
+                                                <td><button class="btn btn-outline-primary " id="send ">Send</button></td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="card h-100 shadow border-0 ">
+                                    <h2 class="fw-bolder mb-0 ">Address Book</h2>
+                                    <div class="card-body p-4 ">
+                                        <table>
+                                            <tr>
+                                                <td>Find Friend</td>
+                                                <td><input type="text " id="find_friend " placeholder="enter name... " class="form-control "></td>
+                                                <td><button class="btn btn-outline-primary " id="find ">Find</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Add Friend</td>
+                                                <td><input type="text " class="form-control " id="add_friend_name " placeholder="enter name ... "></td>
+                                                <td><input type="text " class="form-control " id="add_friend_address " placeholder="enter celo address ... "></td>
+                                                <td><button id="add " class="btn btn-outline-primary ">Add</button></td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -373,19 +411,102 @@
         var iRemintAbi = "[]";
     </script>
     <script>
+        const video = ge("camera_video");
+        console.log("video : " + video);
         const deviceSelect = ge("device_select");
         const cameraActivateButton = ge("activate_camera");
-        const takePhotoButton = ge("take_photo");
-        const photoShot = ge("photo_shot");
-        const photoTitle = ge("photo_title");
-        const photoStory = ge("photo_story");
-        const mintPhoto = ge("mint_photo");
-        const binPhoto = ge("bin");
+        const takePhotoButton = ge("take_photo_button");
+        takePhotoButton.disabled = true;
 
+        const mintingCanvas = ge("minting_canvas");
+        const photoTitle = ge("photo_title_field");
+        const photoStory = ge("photo_story_field");
+        const mintPhoto = ge("mint_photo_button");
+        const binPhoto = ge("bin_button");
+
+
+        var image;
+        var cameraActive;
+        var localStream;
+        cameraActivateButton.addEventListener('click', async function() {
+            activateCamera();
+        });
+
+        var placeholder = new Image();
+        placeholder.src = "assets/android-icon-192x192.png";
+        mintingCanvas.getContext('2d').drawImage(placeholder, 0, 0, placeholder.width, placeholder.height);
 
         function ge(element) {
             return document.getElementById(element);
         }
+
+        listDevices();
+
+        function listDevices() {
+            if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+                console.log("enumerateDevices() not supported.");
+                return;
+            }
+
+            // List cameras and microphones.
+
+            navigator.mediaDevices.enumerateDevices()
+                .then(function(devices) {
+                    devices.forEach(function(device) {
+                        console.log(device.kind + ": " + device.label +
+                            " id = " + device.deviceId);
+                    });
+                })
+                .catch(function(err) {
+                    console.log(err.name + ": " + err.message);
+                });
+        }
+
+        function activateCamera() {
+            if (!cameraActive) {
+                console.log("selected device : " + deviceSelect);
+                var selectedDevice = deviceSelect.value;
+                if (selectedDevice === "front_camera") {
+
+                } else {
+
+                }
+                navigator.mediaDevices.getUserMedia({
+                        video: true,
+                        audio: false
+                    })
+                    .then(function(stream) {
+                        localstream = stream;
+                        video.src = localstream;
+                        cameraActivateButton.innerHTML = "<i class=\"fa fa-camera\"></i> Stop Camera";
+                        cameraActivateButton.setAttribute("class", "btn btn-danger");
+                        cameraActive = true;
+                        takePhotoButton.disabled = false;
+                        takePhotoButton.setAttribute("class", "btn btn-success");
+                    })
+                    .catch(function(err) {
+                        console.log(err);
+                    })
+            } else {
+                video.pause();
+                video.src = "";
+                localstream.getTracks()[0].stop();
+                cameraActivateButton.innerHTML = "<i class=\"fa fa-camera\"></i> Start Camera";
+                cameraActivateButton.setAttribute("class", "btn btn-success");
+                cameraActive = false;
+                takePhotoButton.disabled = true;
+                takePhotoButton.setAttribute("class", "btn btn-default");
+            }
+        }
+
+        takePhotoButton.addEventListener('click', function() {
+            mintingCanvas.getContext('2d').drawImage(video, 0, 0, mintingCanvas.width, mintingCanvas.height);
+            let image_data_url = mintingCanvas.toDataURL('image/jpeg');
+            image = image_data_url;
+
+            // data url of the image
+            console.log(image);
+        });
     </script>
     <script>
         const onboardButton = ge("connect_web_3");
@@ -426,7 +547,7 @@
                 console.log("metamask installed");
                 onboardButton.addEventListener('click', () => {
                     getAccount();
-                    onboardButton.innerText = "Web 3 Connected";
+                    onboardButton.innerText = "Celo Connected";
                     loadStats();
                 });
             }
